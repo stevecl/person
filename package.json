@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config config/webpack.dev.js --progress",
-    "watch": "webpack --config config/webpack.watch.js --watch --progress",
+    "watch": "webpack --config config/webpack.watch.js --progress",
     "live": "webpack --config config/webpack.prod.js"
   },
   "repository": {
@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/stevecl/person#readme",
   "dependencies": {
+    "autoprefixer": "^8.6.4",
+    "autoprefixer-loader": "^3.2.0",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",

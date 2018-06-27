@@ -15,6 +15,7 @@ config = merge(config, {
             removeAttributeQuotes: true
         },
         inject: 'body',
+        chunks: ["utils", "vendor", 'index'],
     })
   ]
 });
