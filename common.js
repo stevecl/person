@@ -1,0 +1,149 @@
+// 手机号验证
+var validate = function(num) {
+    var reg = /^1[3-9]\d{9}$/;
+    return reg.test(num);
+};
+//获取时间  10位时间戳
+var serverTime = new Date($.ajax({
+    async: false
+}).getResponseHeader("Date"))
+
+// 身份证号验证
+var reg = /^[1-9]{1}[0-9]{14}$|^[1-9]{1}[0-9]{16}([0-9]|[xX])$/;
+
+// ip验证
+var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/
+
+// 阻止冒泡
+function stopBubble(e){
+    e = e || window.event;  
+    if(e.stopPropagation){
+        e.stopPropagation();  //W3C阻止冒泡方法  
+    }else {  
+        e.cancelBubble = true; //IE阻止冒泡方法  
+    }  
+}
+
+//=====================================================obj
+// 深度拷贝
+function deepclone(obj) {
+    var o = obj.constructor == Object ? new obj.constructor() : new obj.constructor(obj.valueOf());
+    for(var key in obj){
+        if(o[key] != obj[key] ){
+            if(typeof(obj[key]) == 'object' ){
+                o[key] = mods.cloneObj(obj[key]);
+            }else{
+                o[key] = obj[key];
+            }
+        }
+    }
+    return o;
+}
+/**
+ * @method isClass obj判断类型：返回传递给他的任意对象的类
+ * @param {any}
+ * @return {string}
+ */
+function isClass(o){
+    if(o === null) return "Null";
+    if(o === undefined) return "Undefined";
+    return Object.prototype.toString.call(o).slice(8,-1);
+}
+
+// obj判断是否为空{}
+function isEmptyObject(obj){
+    var t;
+    for (t in obj)
+        return !1;
+    return !0
+}
+
+/**
+ * @method getDateStrByStamp  时间戳（毫秒）转"yy-mm-dd hh:mm:ss"
+ * @param _stamp 时间戳
+ * @return {string}  "yy-mm-dd hh:mm:ss"
+ */
+function getDateStrByStamp(_stamp){
+    if(!_stamp || _stamp<=0) return "";
+    let date = new Date(_stamp);
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    let D = date.getDate() + ' ';
+    let h = date.getHours() + ':';
+    let m = date.getMinutes() + ':';
+    let s = date.getSeconds();
+    return Y + M + D + h + m + s;
+}
+/**
+ * @method getDateStrLastByStamp  毫秒 转 “x天x小时”
+ * @param _stamp 毫秒
+ * @return {string} “x天x小时”
+ */
+function getDateStrLastByStamp(_stamp){
+    let t = _stamp / 1000;//计算剩余的秒数
+    let days = Math.floor(t / 60 / 60 / 24);
+    let hours = Math.floor(t / 60 / 60 - (24 * days));
+    let str = "";
+    if(days>0){
+        str += days + "天";
+    }
+    str += hours + "小时";
+    return str;
+}
+
+//=====================================================array
+// 数组去重
+var unique = function(arr) {
+    var result = [], json = {};
+    for (var i = 0, len = arr.length; i < len; i++){
+        if (!json[arr[i]]) {
+            json[arr[i]] = 1;
+            result.push(arr[i]);  //返回没被删除的元素
+        }
+    }
+    return result;
+};
+
+// 判断数组元素是否重复
+var isRepeat = function(arr) {  //arr是否有重复元素
+    var hash = {};
+    for (var i in arr) {
+        if (hash[arr[i]]) return true;
+        hash[arr[i]] = true;
+    }
+    return false;
+};
+
+//======================================================url
+/**
+ * @method getQueryString   获取url参数
+ * @param {string}  url
+ * @param {string}  key
+ * @param {string}
+ */
+function getQueryString(url, key){
+    // url = "http://192.168.2.151:8009/?p1=xxxccc&p2=1122%33&p3=22ss22";
+    let qulist = url.match(new RegExp("[^\?&]*"+key+"=+[^&]*"));
+    return qulist ? qulist[0].split('=')[1] : null;
+}
+function setCookie(cname, cvalue, exdays) {
+    exdays = 365;
+    var d = new Date();
+    this.delCookie(cname);
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+function getCookie(name){ //匹配字段
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr = document.cookie.match(reg))
+        return (arr[2]);
+    else
+        return null;
+}
+function delCookie(name){ //删除cookies
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = this.getCookie(name);
+    if(cval != null) document.cookie= name + "=" + cval + ";expires=" + exp.toGMTString();
+}
