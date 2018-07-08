@@ -72,16 +72,20 @@ export default {
         // 切换背景
         changeBg(n){
             this.bgIndex = n - 1;
+            this.autoChange();
+        },
+        autoChange(){
+            clearInterval(this.timeCount)
+            this.timeCount = setInterval(()=>{
+                this.bgIndex === 3 ? this.bgIndex = 0 : this.bgIndex ++;
+            }, 3000)
         },
         toPerson(){
             this.$router.push({path: '/cl'})
         }
     },
     mounted(){
-        this.timeCount = setInterval(()=>{
-            console.log('出发了')
-            this.bgIndex === 3 ? this.bgIndex = 0 : this.bgIndex ++;
-        }, 3000)
+        this.autoChange();
     },
     destroyed(){
         clearInterval(this.timeCount)
