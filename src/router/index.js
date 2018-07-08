@@ -7,7 +7,7 @@ import Person from '@/view/person/person'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
