@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 // style load
 import './assets/style/reset'
+import './assets/style/base'
 // js load
 import './assets/lib/common'
 

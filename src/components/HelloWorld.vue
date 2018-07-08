@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <img src="../assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -109,5 +110,12 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello{
+  margin-top: 60px;
+}
+.hello img{
+  width: 200px;
+  height: 200px;
 }
 </style>
