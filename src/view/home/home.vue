@@ -228,13 +228,13 @@ export default {
     .slide-enter{
         transform: translateY(-100%)
     }
-    .slide-leave-active{
-        // transition:  all 0.2s;
-    }
-    .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-        // transform: translateY(-100%)
-        //  opacity: 0;
-    }
+    // .slide-leave-active{
+    //     // transition:  all 0.2s;
+    // }
+    // .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    //     // transform: translateY(-100%)
+    //     //  opacity: 0;
+    // }
 }
 </style>
 
