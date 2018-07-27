@@ -34,7 +34,7 @@ module.exports =  function renderCanvas() {
     var canvas = document.querySelector('#loginCanvas');
   
     canvas.width = document.querySelector('.cav').clientWidth;
-    canvas.height = 353;
+    canvas.height = document.querySelector('.cav').clientHeight;
   
     var ctx = canvas.getContext("2d");
   
@@ -47,8 +47,8 @@ module.exports =  function renderCanvas() {
       this.y = randomNum(3, canvas.height - 3);
       this.r = randomNum(0, 2);
       this.color = "#b6fbff";
-      this.speedX = randomNum(-3, 3) * 0.2;
-      this.speedY = randomNum(-3, 3) * 0.2;
+      this.speedX = randomNum(-3, 3) * 0.3;
+      this.speedY = randomNum(-3, 3) * 0.3;
     }
     Ball.prototype = {
       //绘制小球
@@ -72,7 +72,7 @@ module.exports =  function renderCanvas() {
       }
     };
     var balls = [];
-    for (var i = 0; i < 180; i++) {
+    for (var i = 0; i < 250; i++) {
       var ball = new Ball();
       balls.push(ball);
     }
