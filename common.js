@@ -26,19 +26,34 @@ function stopBubble(e){
 
 //=====================================================obj
 // 深度拷贝
-function deepclone(obj) {
-    var o = obj.constructor == Object ? new obj.constructor() : new obj.constructor(obj.valueOf());
-    for(var key in obj){
-        if(o[key] != obj[key] ){
-            if(typeof(obj[key]) == 'object' ){
-                o[key] = mods.cloneObj(obj[key]);
-            }else{
-                o[key] = obj[key];
-            }
+const deepClone = function(obj) {
+    // 先检测是不是数组和Object
+    // let isArr = Object.prototype.toString.call(obj) === '[object Array]';
+    let isArr = Array.isArray(obj);
+    let isJson = Object.prototype.toString.call(obj) === '[object Object]';
+    if (isArr) {
+        // 克隆数组
+        let newObj = [];
+        for (let i = 0; i < obj.length; i++) {
+            newObj[i] = deepClone(obj[i]);
         }
+        return newObj;
+    } else if (isJson) {
+        // 克隆Object
+        let newObj = {};
+        for (let i in obj) {
+            newObj[i] = deepClone(obj[i]);
+        }
+        return newObj;
     }
-    return o;
-}
+    // 不是引用类型直接返回
+    return obj;
+};
+
+Object.prototype.deepClone = function() {
+    return deepClone(this);
+};
+Object.defineProperty(Object.prototype, 'deepClone', {enumerable: false});
 /**
  * @method isClass obj判断类型：返回传递给他的任意对象的类
  * @param {any}
@@ -147,3 +162,10 @@ function delCookie(name){ //删除cookies
     var cval = this.getCookie(name);
     if(cval != null) document.cookie= name + "=" + cval + ";expires=" + exp.toGMTString();
 }
+
+
+
+
+// console.log('jp')
+(_=>[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x=>(o+=`/${b='_'.repeat(w=x<y?2:' 667699'[x=["BS","TAB","CAPS","ENTER"][p++]||'SHIFT',p])}\\|`,m+=y+(x+'    ').slice(0,w)+y+y,n+=y+b+y+y,l+=' __'+b)[73]&&(k.push(l,m,n,o),l='',m=n=o=y),m=n=o=y='|',p=l=k=[])&&k.join`
+`)()
