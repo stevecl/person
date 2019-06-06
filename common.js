@@ -24,6 +24,15 @@ function stopBubble(e){
     }  
 }
 
+//=====================================================dom\
+// 元素包含
+let contains = document.documentElement.contains ?
+                (parent, node) => parent !== node && parent.contains(node) : 
+                (parent, node) =>  {
+                    while (node && (node = node.parentNode))
+                    if (node === parent) return true
+                    return false
+                }
 //=====================================================obj
 // 深度拷贝
 const deepClone = function(obj) {
