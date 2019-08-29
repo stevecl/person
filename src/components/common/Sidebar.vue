@@ -49,60 +49,31 @@ export default {
       items: [
         {
           icon: 'el-icon-lx-people',
-          index: 'user',
+          index: '1',
           title: '用户管理',
           subs: [
             {
-              index: 'user',
+              index: '/user',
               title: '用户列表'
             },
             {
-              index: 'user/edit/0',
+              index: '/user/edit/0',
               title: '新增用户'
             }
           ]
         },
         {
-          icon: 'el-icon-lx-home',
-          index: 'dashboard',
-          title: '系统首页'
-        },
-        {
           icon: 'el-icon-lx-cascades',
-          index: 'table',
-          title: '基础表格'
-        },
-        {
-          icon: 'el-icon-lx-copy',
-          index: 'tabs',
-          title: 'tab选项卡'
-        },
-        {
-          icon: 'el-icon-lx-calendar',
-          index: '3',
-          title: '表单相关',
+          index: '2',
+          title: '房源管理',
           subs: [
             {
-              index: 'form',
-              title: '基本表单'
+              index: '/house',
+              title: '房源列表'
             },
             {
-              index: '3-2',
-              title: '三级菜单',
-              subs: [
-                {
-                  index: 'editor',
-                  title: '富文本编辑器'
-                },
-                {
-                  index: 'markdown',
-                  title: 'markdown编辑器'
-                }
-              ]
-            },
-            {
-              index: 'upload',
-              title: '文件上传'
+              index: '/house/house_add',
+              title: '录入房源'
             }
           ]
         },
@@ -145,11 +116,6 @@ export default {
               title: '404页面'
             }
           ]
-        },
-        {
-          icon: 'el-icon-lx-redpacket_fill',
-          index: '/donate',
-          title: '支持作者'
         }
       ]
     };
@@ -181,9 +147,18 @@ export default {
   width: 0;
 }
 .sidebar-el-menu:not(.el-menu--collapse) {
-  width: 250px;
+  width: 200px;
+}
+.el-menu--collapse{
+  width: 50px;
 }
 .sidebar > ul {
   height: 100%;
 }
+.el-menu-item, .el-submenu__title{
+  height: 44px;
+  line-height: 44px;
+  padding: 0 10px!important;
+}
+
 </style>

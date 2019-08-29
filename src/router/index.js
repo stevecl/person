@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/dashboard'
+      redirect: '/user'
     },
     {
       path: '/',
@@ -25,9 +25,14 @@ export default new Router({
           meta: { title: '新增用户' }
         },
         {
-          path: '/dashboard',
-          component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/Dashboard.vue'),
-          meta: { title: '系统首页' }
+          path: '/house',
+          component: () => import(/* webpackChunkName: "house" */ '../views/house'),
+          meta: { title: '房源列表' }
+        },
+        {
+          path: '/house/house_add',
+          component: () => import(/* webpackChunkName: "house_add" */ '../views/house/house_add.vue'),
+          meta: { title: '录入房源' }
         },
         {
           path: '/icon',
@@ -35,43 +40,6 @@ export default new Router({
           meta: { title: '自定义图标' }
         },
         {
-          path: '/table',
-          component: () => import(/* webpackChunkName: "table" */ '../components/page/BaseTable.vue'),
-          meta: { title: '基础表格' }
-        },
-        {
-          path: '/tabs',
-          component: () => import(/* webpackChunkName: "tabs" */ '../components/page/Tabs.vue'),
-          meta: { title: 'tab选项卡' }
-        },
-        {
-          path: '/form',
-          component: () => import(/* webpackChunkName: "form" */ '../components/page/BaseForm.vue'),
-          meta: { title: '基本表单' }
-        },
-        {
-
-          // 富文本编辑器组件
-          path: '/editor',
-          component: () => import(/* webpackChunkName: "editor" */ '../components/page/VueEditor.vue'),
-          meta: { title: '富文本编辑器' }
-        },
-        {
-
-          // markdown组件
-          path: '/markdown',
-          component: () => import(/* webpackChunkName: "markdown" */ '../components/page/Markdown.vue'),
-          meta: { title: 'markdown编辑器' }
-        },
-        {
-
-          // 图片上传组件
-          path: '/upload',
-          component: () => import(/* webpackChunkName: "upload" */ '../components/page/Upload.vue'),
-          meta: { title: '文件上传' }
-        },
-        {
-
           // vue-schart组件
           path: '/charts',
           component: () => import(/* webpackChunkName: "chart" */ '../components/page/BaseCharts.vue'),
@@ -108,11 +76,6 @@ export default new Router({
           component: () => import(/* webpackChunkName: "403" */ '../components/page/403.vue'),
           meta: { title: '403' }
         },
-        {
-          path: '/donate',
-          component: () => import(/* webpackChunkName: "donate" */ '../components/page/Donate.vue'),
-          meta: { title: '支持作者' }
-        }
       ]
     },
     {
