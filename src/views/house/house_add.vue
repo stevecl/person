@@ -41,16 +41,16 @@
             <el-input v-model="form.title"></el-input>
           </el-form-item>
           <el-form-item required label="可出租面积" class="custom-input">
-						<el-input v-model="form.rentSize"></el-input>
+            <el-input v-model="form.rentSize"></el-input>
           </el-form-item>
           <el-form-item required label="出租价格" class="custom-input">
-						<el-input v-model="form.rentPrice"></el-input>
+            <el-input v-model="form.rentPrice"></el-input>
           </el-form-item>
           <el-form-item required label="可出售面积" class="custom-input">
-						<el-input v-model="form.saleSize"></el-input>
+            <el-input v-model="form.saleSize"></el-input>
           </el-form-item>
           <el-form-item required label="出售价格" class="custom-input">
-						<el-input v-model="form.salePrice"></el-input>
+            <el-input v-model="form.salePrice"></el-input>
           </el-form-item>
           <el-form-item required label="房源来源">
             <el-radio-group v-model="form.source">
@@ -59,7 +59,7 @@
               <el-radio label="线上平台"></el-radio>
               <el-radio label="其他"></el-radio>
             </el-radio-group>
-						<el-input v-model="form.otherSource" style="width: 100px;margin-left: 20px;"></el-input>
+            <el-input v-model="form.otherSource" style="width: 100px;margin-left: 20px;"></el-input>
           </el-form-item>
           <el-form-item required label="存在子房源">
             <el-radio-group v-model="form.subHouse">
@@ -135,37 +135,37 @@ export default {
         }
       ],
       form: {
-				name: '',
-				linkman: '',
-				phone: '',
-				job: '',
-				houseType: [],
-				transType: [],
-				area: '',
-				title: '',
-				rentSize: '',
-				rentPrice: '',
-				saleSize: '',
-				salePrice: '',
-				source: '',
-				otherSource: '',
-				subHouse: '',
+        name: '',
+        linkman: '',
+        phone: '',
+        job: '',
+        houseType: [],
+        transType: [],
+        area: '',
+        title: '',
+        rentSize: '',
+        rentPrice: '',
+        saleSize: '',
+        salePrice: '',
+        source: '',
+        otherSource: '',
+        subHouse: ''
       }
     };
   },
   methods: {
     onSubmit () {
-			console.log(this.form)
+      console.log(this.form);
       // this.$message.success('提交成功！');
     }
   }
 };
 </script>
 <style lang="less">
-.container{
-	.custom-input{
-		display: inline-block;
-		width: 300px;	
-	}
+.container {
+  .custom-input {
+    display: inline-block;
+    width: 300px;
+  }
 }
 </style>

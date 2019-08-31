@@ -1,0 +1,53 @@
+
+/*BaseForm*/
+
+.form-box {
+	width: 600px;
+}
+
+.form-box .line {
+	text-align: center;
+}
+
+.el-time-panel__content::after,
+.el-time-panel__content::before {
+	margin-top: -7px;
+}
+
+.el-time-spinner__wrapper .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
+	padding-bottom: 0;
+}
+
+/* custom style */
+.el-submenu__title, .el-menu-item{
+height: 44px;
+	line-height: 44px;
+	padding: 0 10px!important;
+}
+.el-menu--inline .el-menu-item{
+	padding: 0 30px!important;
+}
+.el-menu--collapse .el-submenu__title, .el-menu--collapse .el-tooltip{
+padding-left: 10px!important; 
+}
+/* dialog style */
+.el-dialog__wrapper{
+	display: flex;
+	align-items: center;
+}
+.el-dialog{
+	overflow: hidden;
+	border-radius: 10px;
+}
+.el-dialog .el-dialog__header{
+	padding-top: 10px;
+	background-color: #369ef6;
+}
+.el-dialog .el-dialog__header .el-dialog__title, .el-dialog .el-dialog__header i, .el-dialog .el-dialog__header i:hover{
+	color: #fff;
+}
+.el-dialog .el-dialog__body{
+	margin: 10px;
+	padding: 10px 10px 20px;
+	border-bottom: 1px solid #369ef6;
+}

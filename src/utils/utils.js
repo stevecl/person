@@ -1,8 +1,8 @@
 let utils = {
   dateFormat (date, fmt) {
-    if (!date) return '';
-    if (typeof date === 'string') date = date.replace(/-/g, '/');
-    if (!date.hasOwnProperty('getMonth')) date = new Date(date);
+    if (!date) return ''
+    if (typeof date === 'string') date = date.replace(/-/g, '/')
+    if (!date.hasOwnProperty('getMonth')) date = new Date(date)
     let o = {
       'M+': date.getMonth() + 1, // 月份
       'd+': date.getDate(), // 日
@@ -13,37 +13,37 @@ let utils = {
       'S': date.getMilliseconds()
 
       // 毫秒
-    };
+    }
     if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+      fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
     }
     for (let k in o) {
       if (new RegExp('(' + k + ')').test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
       }
     }
-    return fmt;
+    return fmt
   },
 
   // 深度拷贝
   clone (obj) {
     // let isArr = Object.prototype.toString.call(obj) === '[object Array]';
-    let isArr = Array.isArray(obj);
-    let isObject = Object.prototype.toString.call(obj) === '[object Object]';
+    let isArr = Array.isArray(obj)
+    let isObject = Object.prototype.toString.call(obj) === '[object Object]'
     if (isArr) {
-      let newObj = [];
+      let newObj = []
       for (let i = 0; i < obj.length; i++) {
-        newObj[i] = this.clone(obj[i]);
+        newObj[i] = this.clone(obj[i])
       }
-      return newObj;
+      return newObj
     } else if (isObject) {
-      let newObj = {};
+      let newObj = {}
       for (let i in obj) {
-        newObj[i] = this.clone(obj[i]);
+        newObj[i] = this.clone(obj[i])
       }
-      return newObj;
+      return newObj
     }
-    return obj;
+    return obj
   }
 }
-export default utils;
+export default utils

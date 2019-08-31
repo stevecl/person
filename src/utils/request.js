@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const service = axios.create({
 
@@ -8,20 +8,20 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(config => {
-  return config;
+  return config
 }, error => {
-  console.log(error);
-  return Promise.reject();
+  console.log(error)
+  return Promise.reject()
 })
 
 service.interceptors.response.use(response => {
   if (response.status === 200) {
-    return response.data;
+    return response.data
   }
-  Promise.reject();
+  Promise.reject()
 }, error => {
-  console.log(error);
-  return Promise.reject();
+  console.log(error)
+  return Promise.reject()
 })
 
-export default service;
+export default service

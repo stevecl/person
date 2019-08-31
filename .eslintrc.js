@@ -29,6 +29,7 @@ module.exports = {
   // 2或’error’：打开规则，并且作为一个错误 (退出码为1，检查不通过)。
   rules: {
     "semi": 0,
-    "prefer-promise-reject-errors": 0
+    "prefer-promise-reject-errors": 0,
+    "no-tabs": 0
   }
 }

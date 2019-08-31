@@ -50,7 +50,7 @@ export default {
         {
           icon: 'el-icon-lx-people',
           index: '1',
-          title: '用户管理',
+          title: 'crm用户管理',
           subs: [
             {
               index: '/user',
@@ -69,13 +69,73 @@ export default {
           subs: [
             {
               index: '/house',
-              title: '房源列表'
+              title: '意向房源'
             },
             {
               index: '/house/house_add',
               title: '录入房源'
             }
           ]
+        },
+        {
+          icon: 'el-icon-lx-cascades',
+          index: '3',
+          title: '入驻客户管理',
+          subs: [
+            {
+              index: '/customer',
+              title: '入驻客户列表'
+            },
+            {
+              index: '/customer/detail',
+              title: '入驻客户详情'
+            }
+          ]
+        },
+        {
+          icon: 'el-icon-lx-cascades',
+          index: '4',
+          title: 'crm公告管理',
+          subs: [
+            {
+              index: '/announcement',
+              title: '公告列表'
+            },
+            {
+              index: '/announcement/detail',
+              title: '公告详情'
+            }
+          ]
+        },
+        {
+          icon: 'el-icon-lx-cascades',
+          index: '5',
+          title: '通知中心',
+          subs: [
+            {
+              index: '/notice',
+              title: '通知列表'
+            },
+            {
+              index: '/notice/detail',
+              title: '通知详情'
+            }
+          ]
+        },
+        {
+          icon: 'el-icon-lx-emoji',
+          index: 'crawlerData',
+          title: '爬虫数据'
+        },
+        {
+          icon: 'el-icon-lx-emoji',
+          index: 'dataInfo',
+          title: '数据统计'
+        },
+        {
+          icon: 'el-icon-lx-emoji',
+          index: 'banner',
+          title: 'banner管理'
         },
         {
           icon: 'el-icon-lx-emoji',
@@ -86,21 +146,6 @@ export default {
           icon: 'el-icon-pie-chart',
           index: 'charts',
           title: 'schart图表'
-        },
-        {
-          icon: 'el-icon-rank',
-          index: '6',
-          title: '拖拽组件',
-          subs: [
-            {
-              index: 'drag',
-              title: '拖拽列表'
-            },
-            {
-              index: 'dialog',
-              title: '拖拽弹框'
-            }
-          ]
         },
         {
           icon: 'el-icon-lx-warn',
@@ -118,20 +163,20 @@ export default {
           ]
         }
       ]
-    };
+    }
   },
   computed: {
     onRoutes () {
-      return this.$route.path.replace('/', '');
+      return this.$route.path.replace('/', '')
     }
   },
   created () {
     // 通过 Event Bus 进行组件间通信，来折叠侧边栏
     Bus.$on('collapse', msg => {
-      this.collapse = msg;
-    });
+      this.collapse = msg
+    })
   }
-};
+}
 </script>
 
 <style scoped>
@@ -154,11 +199,6 @@ export default {
 }
 .sidebar > ul {
   height: 100%;
-}
-.el-menu-item, .el-submenu__title{
-  height: 44px;
-  line-height: 44px;
-  padding: 0 10px!important;
 }
 
 </style>

@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   routes: [
@@ -11,80 +11,105 @@ export default new Router({
     },
     {
       path: '/',
-      component: () => import(/* webpackChunkName: "home" */ '../components/common/Home.vue'),
+      component: () => import('../components/common/Home.vue'),
       meta: { title: '自述文件' },
       children: [
         {
           path: '/user',
-          component: () => import(/* webpackChunkName: "user" */ '../views/user'),
+          component: () => import('../views/user'),
           meta: { title: '用户列表' }
         },
         {
           path: '/user/edit/:id',
-          component: () => import(/* webpackChunkName: "user_edit" */ '../views/user/user_edit.vue'),
+          component: () => import('../views/user/user_edit.vue'),
           meta: { title: '新增用户' }
         },
         {
           path: '/house',
-          component: () => import(/* webpackChunkName: "house" */ '../views/house'),
-          meta: { title: '房源列表' }
+          component: () => import('../views/house'),
+          meta: { title: '意向房源' }
         },
         {
           path: '/house/house_add',
-          component: () => import(/* webpackChunkName: "house_add" */ '../views/house/house_add.vue'),
+          component: () => import('../views/house/house_add.vue'),
           meta: { title: '录入房源' }
         },
         {
+          path: '/customer',
+          component: () => import('../views/customer'),
+          meta: { title: '入驻客户列表' }
+        },
+        {
+          path: '/customer/detail',
+          component: () => import('../views/customer/index_detail.vue'),
+          meta: { title: '入驻客户详情' }
+        },
+        {
+          path: '/announcement',
+          component: () => import('../views/announcement'),
+          meta: { title: '公告列表' }
+        },
+        {
+          path: '/announcement/detail',
+          component: () => import('../views/announcement/index_detail.vue'),
+          meta: { title: '公告详情' }
+        },
+        {
+          path: '/notice',
+          component: () => import('../views/notice'),
+          meta: { title: '通知列表' }
+        },
+        {
+          path: '/notice/detail',
+          component: () => import('../views/notice/index_detail.vue'),
+          meta: { title: '通知详情' }
+        },
+        {
+          path: '/crawlerData',
+          component: () => import('../views/crawlerData'),
+          meta: { title: '爬虫数据' }
+        },
+        {
+          path: '/dataInfo',
+          component: () => import('../views/dataInfo'),
+          meta: { title: '数据统计' }
+        },
+        {
+          path: '/banner',
+          component: () => import('../views/banner'),
+          meta: { title: 'banner管理' }
+        },
+
+        {
           path: '/icon',
-          component: () => import(/* webpackChunkName: "icon" */ '../components/page/Icon.vue'),
+          component: () => import('../components/page/Icon.vue'),
           meta: { title: '自定义图标' }
         },
         {
           // vue-schart组件
           path: '/charts',
-          component: () => import(/* webpackChunkName: "chart" */ '../components/page/BaseCharts.vue'),
+          component: () => import('../components/page/BaseCharts.vue'),
           meta: { title: 'schart图表' }
         },
         {
-
-          // 拖拽列表组件
-          path: '/drag',
-          component: () => import(/* webpackChunkName: "drag" */ '../components/page/DragList.vue'),
-          meta: { title: '拖拽列表' }
-        },
-        {
-
-          // 拖拽Dialog组件
-          path: '/dialog',
-          component: () => import(/* webpackChunkName: "dragdialog" */ '../components/page/DragDialog.vue'),
-          meta: { title: '拖拽弹框' }
-        },
-        {
-
-          // 权限页面
-          path: '/permission',
-          component: () => import(/* webpackChunkName: "permission" */ '../components/page/Permission.vue'),
-          meta: { title: '权限测试', permission: true }
-        },
-        {
           path: '/404',
-          component: () => import(/* webpackChunkName: "404" */ '../components/page/404.vue'),
+          component: () => import('../components/page/404.vue'),
           meta: { title: '404' }
         },
         {
           path: '/403',
-          component: () => import(/* webpackChunkName: "403" */ '../components/page/403.vue'),
+          component: () => import('../components/page/403.vue'),
           meta: { title: '403' }
-        },
+        }
       ]
     },
     {
       path: '/login',
-      component: () => import(/* webpackChunkName: "login" */ '../components/page/Login.vue')
+      component: () => import('../components/page/Login.vue')
     },
     {
       path: '*',
       redirect: '/404'
     }
   ]
-});
+})

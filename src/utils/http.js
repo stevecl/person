@@ -1,2 +1,2 @@
 import axios from 'axios'
-export default axios;
+export default axios
